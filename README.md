@@ -76,6 +76,10 @@ https://www.ashmanov.com/education/articles/seo/
 
 ###  What is semantic
 
+Choose semantic elements over non-semantic elements for your websites. 
+
+They make your code meaningful and improve structure, accessibility, and SEO.
+
 A semantic element clearly describes its meaning to both the browser and the developer.
 
 ``` <header>  <nav>  <main> <strong> ```.  HTML5 added a lot of semantic tags.
@@ -314,34 +318,6 @@ less priority thing will be done and in this manner, work will be completed.
    to the client side.
 
 
-###  What is AJAX
-
-Approach for creating async apps using cleint-server request-response.
-
-Update web content without reloading the whole page.  Use XmlHttpRequest(legacy) or fetch.
-
-Pro: 
- - dynamic add data from server without refreshing the whole page
-   
- - decrease server calls
-   
- - state of the page is not changed 
-
-Contra: 
- - does not work without JS
-    
- - dynamic content is not visible for some robots
-
-
-###  How dynamically add elements to the HTML page
-    
- - document.createElement
-    
- - document.createTextNode
-    
- - document.appendChild
-
-
 ###  What is web-components and their technologies
 
 This is a suite of different technologies allowing you to **create reusable custom elements** 
@@ -555,6 +531,24 @@ Tha main UX task to show something to use as fast as possible. There are two rea
 ```
 
 
+###  Improving Video Presentation
+
+The poster attribute can be used with the *video* element to display an image until the user plays the video.
+
+	```
+	<video controls poster="image.png" width="500">
+		<source src="video.mp4" type="video/mp4 />
+	</video>
+	
+	```
+
+
+###  Control Image Loading
+
+The *loading* attribute with the *img* element can be used to control how the browser loads the image. 
+It has three values: “eager”, “lazy”, and “auto”:   ```<img src="picture.jpg" loading="lazy">```
+
+
 ###  Meta tag name=viewport
 
 Used for responsive version of the site.
@@ -649,17 +643,29 @@ The *output* tag is used to represent the **result of a calculation** (like one 
 For Form elements to parse string value from input as number. No need to use parseInt.
 
 
+###  Contact links via using *href*
+
+	```
+   	<a  href="url">                    Simple link  
+   	
+	<a  href="url" download>           Download link
+   	
+	<a  href="url" target="">
+   	
+	<a  href="tel:+123-12-12">         Phone
+   	
+	<a  href="mailto:test@test.com">   Email client
+   	
+	<a  href="skype:test" >            Skype
+	
+	<a  href="#id" >                   id to which page will be scrolled onclick
+
+	```
+
+
 ###  Link and target attribute
 
 ```
-   <a  href="url">:              simple link  
-   <a  href="url" download>:    dpwnload link
-   <a  href="url" target="">
-   <a  href="tel:+123-12-12" >
-   <a  href="mailto:test@test.com" >  Email client
-   <a  href="skype:test" >  Skype
-   <a  href="#id" >  id to which page will be scolled onclick
-
   target attribute:
      By default in the SAME tab or frame.
      _blank:   new TAB
@@ -737,6 +743,68 @@ Can be applyed to most of the tags
   - land                include language 
                         for example quotes will be different for diff languages
 
+
+###  Creating Collapsible Content
+
+You can use the *details* and *summary* tags, when you want to include collapsible content on your web page.
+
+The *details* tag creates a container for hidden content, while the *summary*  tag provides a clickable label to toggle the visibility of that content.
+
+	```	
+	<details>
+  		<summary>Click to expand</summary>
+  		<p>This content can be expanded or collapsed.</p>
+	</details>
+
+	```
+
+###  Enhancing Dropdown Menus
+
+You can use the *optgroup* tag to group related options in a *select* HTML tag.
+
+	```
+	<select>
+		<optgroup label="Fruits">
+			<option>Apple</option>
+			<option>Banana</option>
+			<option>Mango</option>
+		</optgroup>
+		<optgroup label="Vegetables">
+			<option>Tomato</option>
+			<option>Broccoli</option>
+			<option>Carrot</option>
+		</optgroup>
+	</select>
+	```
+
+###  Defining Base URL for Relative Links
+
+You can use the *base* tag to define the base URL for all relative URLs in a web page.
+
+This is handy when you want to create a shared starting point for all relative URLs on a web page, 
+
+making it easier to navigate and load resources.
+
+	```
+	<head>
+		<base href="https://shefali.dev" target="_blank" />
+	</head>
+	<body>
+		<a href="/blog">Blogs</a>
+		<a href="/get-in-touch">Contact</a>
+	</body>
+
+	```
+
+###  Managing Translation Features via translate attribute
+
+You can use the *translate* attribute to specify whether the content of an element should be translated by the browser’s translation features.
+
+	```
+	<p translate="no">
+	This text should not be translated.
+	</p>
+	```
 
 
 ## DOM
@@ -941,4 +1009,32 @@ https://www.youtube.com/watch?v=rhvec8cXLlo
  - NodeList: STATIC list of document nodes (element nodes, attributte nodes, and text nodes)
         Ex: If you add a *li* element to a list in the DOM, the list in NodeList will not change.
         *querySelectorAll*  
+
+
+###  What is AJAX
+
+Approach for creating async apps using cleint-server request-response.
+
+Update web content without reloading the whole page.  Use XmlHttpRequest(legacy) or fetch.
+
+Pro: 
+ - dynamic add data from server without refreshing the whole page
+   
+ - decrease server calls
+   
+ - state of the page is not changed 
+
+Contra: 
+ - does not work without JS
+    
+ - dynamic content is not visible for some robots
+
+
+###  How dynamically add elements to the HTML page
+    
+ - document.createElement
+    
+ - document.createTextNode
+    
+ - document.appendChild
 
