@@ -151,17 +151,18 @@ Which element better to use for buttons: It depends on context and what for we n
   - a
 
 
-###  Images and 'alt' attribute                                   
+###  Images and 'alt' attribute and  using of *picture* element                           
 
   ``` <img  src="href" alt="image was not loaded"> ```
    
-Note: Do not set width and height due to responsive design, manipulate width height depending on device on CSS side
+Note: Do not set width and height attributes due to responsive design, manipulate width height depending on device on CSS side.
+Use *srcset* attribute to set needed image depending on media value. Browser will pick the best source from set.
 
    ```
    <picture>
-     <source  media="(min-width: 1024px)"  srcset-"">
-     <source  media="(min-width: 768px)"   srcset-"">
-     <source  media="(min-width: 360px)"   srcset-"">
+     <source  media="(min-width: 1024px)"  srcset="..url..">
+     <source  media="(min-width: 768px)"   srcset="..url..">
+     <source  media="(min-width: 360px)"   srcset="..url..">
      <img src=""  alt="">
    
    ```
@@ -1038,3 +1039,23 @@ Contra:
     
  - document.appendChild
 
+
+###  Coordinates of the elements in browser
+
+Axes start at the top-left part of the screen
+
+Two coordinate systems:
+
+-  Client coordinates (relative to browser window)
+   clientLeft/Top/Width/Height
+
+
+-  Page coordinates (relative to document)
+   offsertLeft/Top/Width/Height
+
+scrollLeft/Top/Height/Width
+
+Main method:  getBoundingClientRect() return DOMRect with position and sizes.
+
+
+https://habr.com/ru/companies/timeweb/articles/705552/ [2022]
