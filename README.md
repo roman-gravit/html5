@@ -100,166 +100,9 @@ Check document for W3C standarts:
  - check for correctness tags and attributes
 
 
-###  Text tags 
-
-```
-   <h1 align=""> -- <h6 align=""> 
-   <p  align="">
-   <hr>                 => draw line     [non semantic]
-   <br>                 => break line    [non semantic]
-   <address>            => Info about author
-   <q>                  => quote of somebody text
-   <blockquote>         => big quote text from somebody
-   <time>
-
-   Text decoration
-   <b> <i> <tt> <s>     => This will be not read by robot  [non semantic]
-   <strong> <em>        => HTML5 semantic tags
-   <del>    <ins>       => HTML5 semantic tags
-
-   <code>               => to show program code
-   <pre>                => preformatted text. formatting will not change
-   <small> <big>        => logicaly show the part of the text in the sentence
-   <sub> <sup>          => for formulas: pow  n^2
-```
-
-
-###  Button                                 
-
-Type:
-   
-   - button:   simple button
-     
-   - submit:   inside <form> - send form data
-   
-   - reset:    inside <form> - reset form data
-    
-    *autofocus* attribute  *disabled* attribute 
-
-Which element better to use for buttons: It depends on context and what for we need for:
-   
-  - button type=button
-
-  - button type=submit
-
-  - input type=submit
-
-  - input type=button
-
-  - div
-
-  - a
-
-
-###  Images and 'alt' attribute and  using of *picture* element                           
-
-  ``` <img  src="href" alt="image was not loaded"> ```
-   
-Note: Do not set width and height attributes due to responsive design, manipulate width height depending on device on CSS side.
-Use *srcset* attribute to set needed image depending on media value. Browser will pick the best source from set.
-
-   ```
-   <picture>
-     <source  media="(min-width: 1024px)"  srcset="..url..">
-     <source  media="(min-width: 768px)"   srcset="..url..">
-     <source  media="(min-width: 360px)"   srcset="..url..">
-     <img src=""  alt="">
-   
-   ```
-    
-How to correctly add Image with semantic description and for search robots
-
-   ```
-   <figure>
-     <img src=""  alt="">
-     <figcaption>image description</figcaption>     
-   
-   ```
-
-Note:
-   *alt* attribute for *img* element: set the default text before image loading or failed.
-   Also it can be pronounced for accesibility. Validator will failed if alt is missed for img 
-
-
-###  Types of lists in HTML                    
-
-  - ordered(numered) lists      ```<ol start="1" reversed> <li>....```
-  
-  - unordered(markered) lists   ```<ul> <li>   disk by default ```
-   
-Note:  Nested lists *ol* will start with 1.  Nested list *ul*  will start with circle
-   
-  - semantic lists  
-    
-   ```
-   <dl> determinations lists        
-      <dt>   termin
-      <dd>   description
-   
-   ```
-
-
-
-
-###  Types of Input elements
-
-Attribute type:
-
- - text:  
-    
- - number:      attributes *min*  *max*  *step*  !useful for mobile phones: keyboard will be displayed
-    
- - password:    
-   
- - range
-    
- - color 
-    
- - submit 
-   
- - reset  
-   
- - text   list="list"  + <datalist>
-   
- - email:     inside <form> it can be validated:  !useful for mobile phones: keyboard will be displayed
-   
- - url:       inside <form> it can be validated
-   
- - image 
-   
- - tel:    !useful for mobile phones: keyboard will be displayed
-   
- - search 
-   
- - date         attributes *min*  *max*  *default*
-   
- - datetime-local:  time can be added and show local time date
-   
- - month:    month can be chosen
-   
- - time:     only time
-   
- - week:     number of the week in the year (1-52)
-   
- - hidden    to post on the form some kind of technical data to server
-                tracking info?
-
- - file      show file dialog  [accept]  [multiple]
-   
- - checkbox  *checked* attrubute
-   
- - radio:    set *name* to the same value   *checked* attrubute
-                Use <label> for checkbox and radio
-
-
 ###  What is canvas
    
 HTML5 element and API for drawing graphics
-
-###  For what do we use data attributes
-   
-The old-style. For store some info.  ```  data-price="30" ```
-
 
 ###  Difference between script, script async and script defer 
 
@@ -269,19 +112,6 @@ The old-style. For store some info.  ```  data-price="30" ```
 	
  - **script defer**  : execution AFTER all HTML reading(parsing), all DOM tree was loaded
 
-
-###  What is datalist
-
-This is HTML5 element for creating dropdown list.
-
-   ```
-   <input list="country">
-   <datalist id="country">  =>  set the same id
-      <option value="India">
-      <option value="Italy">
-   </datalist>
-
-   ```
 
 ###  What is progressive rendering
 
@@ -484,54 +314,6 @@ Tha main UX task to show something to use as fast as possible. There are two rea
    <footer>
 ```
 
-###  Forms                                     
-
-```
-   Simple Form
-   <form  action="serverurl" name="..."  autocomplete="on">
-     <fieldset>
-        <legend>  title 
-
-        <label for="id1"> <input id="id1">
-
-        <textarea rows=""  cols="">  if more col/row - it will be bigger in size
-          - autofocus  -disabled  -readonly   -placeholder  -required  -maxlength
-
-        <select [multiple]>
-           <option>
-           <option>
-           <optgroup>
-              <option value=""  [selected]>  - value will be send to server
-              <option value=""  [disabled]>
-        <input>
-```
-
-###  Audio Video                               
-
-```
-    Universal mp3  mp4
-    <audio>
-        <source src="" type="audio/wav">
-        <source src="" type="audio/mp3">
-    </audio>
-
-    <video>
-        <source src="" type="video/ogg">
-        <source src="" type="video/mp4">
-    </video>
-
-    attributes:
-        - preload   auto | metadata | none
-        - autoplay
-        - muted:     sound will be off after page load
-        - controls
-        - loop
-        - width   (video)
-        - height  (video) 
-        - poster  (video)   show prevew before video
-```
-
-
 ###  Improving Video Presentation
 
 The poster attribute can be used with the *video* element to display an image until the user plays the video.
@@ -623,58 +405,11 @@ https://developer.mozilla.org/ru/docs/Web/HTML/Content_categories
 https://habr.com/ru/companies/ruvds/articles/476292/   https://habr.com/ru/companies/simbirsoft/articles/332750/
 
 
-###  autocomplete attribute 
-
-The autocomplete attribute specifies whether a form or an input field should have autocomplete on or off.
-
-Autocomplete allows the browser to predict the value. When a user starts to type in a field, 
-
-The browser should display options to fill in the field, based on earlier typed values.
-
-
-###  HTML element <output>
-
-The *output* tag is used to represent the **result of a calculation** (like one performed by a script).
-     
-```<form oninput=result.value=parseInt(a.value)+parseInt(b.value)>```
-
 
 ###  Property valueAsNumber in HTML for form elements
 
 For Form elements to parse string value from input as number. No need to use parseInt.
 
-
-###  Contact links via using *href*
-
-	```
-   	<a  href="url">                    Simple link  
-   	
-	<a  href="url" download>           Download link
-   	
-	<a  href="url" target="">
-   	
-	<a  href="tel:+123-12-12">         Phone
-   	
-	<a  href="mailto:test@test.com">   Email client
-   	
-	<a  href="skype:test" >            Skype
-	
-	<a  href="#id" >                   id to which page will be scrolled onclick
-
-	```
-
-
-###  Link and target attribute
-
-```
-  target attribute:
-     By default in the SAME tab or frame.
-     _blank:   new TAB
-     _parent:  parent frame or self if there is no parent
-     _self:    current TAB
-     _top:     aka _self
-   
-```
 
 ###  What is application cache in HTML5  
 
@@ -704,80 +439,6 @@ https://habr.com/ru/companies/paysto/articles/254619/ [2015]
 https://habr.com/ru/articles/788786/ [2024]  Cache API (ServiceWorker)
 
 
-###  Useful tags                               
-```
-   <abbr> abbreviation  => show tooltip on mouseover  Ex: HTML
-
-   <input list="list">   -> set connection with datalist
-   <datalist id="list">  dropdown list
-     <option>
-     <option>
-
-    Visualization of the values in diaposon:
-   <meter value="20"  min="1"  max="100"  low="10" high="70">Progress</meter>
-    - low, high: depending on these values element will change colors to show low/high
-
-    Progress of the action:
-   <progress  value="30" max="100"> 
-     - always blue progress line
-
-    Select with yellow some fragment of text
-    <mark>Select</mark>
-
-    HTML5 element and API for drawing graphics
-    <canvas>
-```
-
-
-###  Universal attribute                       
-
-Can be applyed to most of the tags
-  - id 
-  - class 
-  - title               tootlip with text
-  - style               inline style
-  - contenteditable
-  - spellcheck          for input textarea 
-  - hidden 
-  - tabindex            focus index order
-  - dir                 direction: change text direction
-  - land                include language 
-                        for example quotes will be different for diff languages
-
-
-###  Creating Collapsible Content
-
-You can use the *details* and *summary* tags, when you want to include collapsible content on your web page.
-
-The *details* tag creates a container for hidden content, while the *summary*  tag provides a clickable label to toggle the visibility of that content.
-
-	```	
-	<details>
-  		<summary>Click to expand</summary>
-  		<p>This content can be expanded or collapsed.</p>
-	</details>
-
-	```
-
-###  Enhancing Dropdown Menus
-
-You can use the *optgroup* tag to group related options in a *select* HTML tag.
-
-	```
-	<select>
-		<optgroup label="Fruits">
-			<option>Apple</option>
-			<option>Banana</option>
-			<option>Mango</option>
-		</optgroup>
-		<optgroup label="Vegetables">
-			<option>Tomato</option>
-			<option>Broccoli</option>
-			<option>Carrot</option>
-		</optgroup>
-	</select>
-	```
-
 ###  Defining Base URL for Relative Links
 
 You can use the *base* tag to define the base URL for all relative URLs in a web page.
@@ -797,7 +458,377 @@ making it easier to navigate and load resources.
 
 	```
 
-###  Managing Translation Features via translate attribute
+## Elements/tags/attributes
+
+###  *a* and *href* attribute
+
+	```
+   <a  href="url">                    Simple link  
+   	
+	<a  href="url" download>           Download link
+   	
+	<a  href="url" target="">
+   	
+	<a  href="tel:+123-12-12">         Phone
+   	
+	<a  href="mailto:test@test.com">   Email client
+   	
+	<a  href="skype:test" >            Skype
+	
+	<a  href="#id" >                   id to which page will be scrolled onclick
+
+	```
+
+
+###  *a* and *target* attribute
+
+```
+  target attribute:
+     By default in the SAME tab or frame.
+     _blank:   new TAB
+     _parent:  parent frame or self if there is no parent
+     _self:    current TAB
+     _top:     aka _self
+   
+```
+
+
+###  Useful tags *abbr*, *datalist*, *meter*, *progress*, *mark*                               
+```
+   <abbr> abbreviation  => show tooltip on mouseover  Ex: HTML
+
+   <input list="list">   -> set connection with datalist
+   <datalist id="list">  dropdown list
+     <option>
+     <option>
+
+    Visualization of the values in diaposon(min-max)
+   <meter value="20"  min="1"  max="100"  low="10" high="70">Progress</meter>
+    - low, high: depending on these values element will change colors to show low/high
+
+    Progress of the action: we dont know the MAX value!
+   <progress  value="30" max="100"> 
+     - always blue progress line
+
+    Select with yellow some fragment of text
+    <mark>Select</mark>
+
+    HTML5 element and API for drawing graphics
+    <canvas>
+```
+
+###  Creating Collapsible Content *details* *summary*
+
+You can use the *details* and *summary* tags, when you want to include collapsible content on your web page.
+
+The *details* tag creates a container for hidden content, while the *summary*  tag provides a clickable label to toggle the visibility of that content.
+
+	```	
+	<details>
+  		<summary>Click to expand</summary>
+  		<p>This content can be expanded or collapsed.</p>
+	</details>
+
+	```
+
+###  Enhancing Dropdown Menus *select* *optgroup*
+
+You can use the *optgroup* tag to group related options in a *select* HTML tag.
+
+	```
+	<select>
+		<optgroup label="Fruits">
+			<option>Apple</option>
+			<option>Banana</option>
+			<option>Mango</option>
+		</optgroup>
+		<optgroup label="Vegetables">
+			<option>Tomato</option>
+			<option>Broccoli</option>
+			<option>Carrot</option>
+		</optgroup>
+	</select>
+	```
+
+###  What is *datalist* element
+
+This is HTML5 element for creating dropdown list.
+
+   ```
+   <input list="country">
+   <datalist id="country">  =>  set the same id
+      <option value="India">
+      <option value="Italy">
+   </datalist>
+
+   ```
+
+###  Forms *form*                                  
+
+The *form* HTML element represents a document section containing interactive controls for submitting information.
+Main attributes: 
+
+ - action: The URL that processes the form submission.
+
+ - method: The HTTP method to submit the form with  post | get | dialog
+
+```
+   Simple Form
+   <form  action="serverurl" name="..."  autocomplete="on">
+     <fieldset>
+        <legend>  title 
+
+        <label for="id1"> <input id="id1">
+
+        <textarea rows=""  cols="">  if more col/row - it will be bigger in size
+          - autofocus  -disabled  -readonly   -placeholder  -required  -maxlength
+
+        <select [multiple]>
+           <option>
+           <option>
+           <optgroup>
+              <option value=""  [selected]>  - value will be send to server
+              <option value=""  [disabled]>
+        <input>
+```
+
+###  Audio Video *audio* *video*                             
+
+```
+    Universal mp3  mp4
+    <audio>
+        <source src="" type="audio/wav">
+        <source src="" type="audio/mp3">
+    </audio>
+
+    <video>
+        <source src="" type="video/ogg">
+        <source src="" type="video/mp4">
+    </video>
+
+    attributes:
+        - preload   auto | metadata | none
+        - autoplay
+        - muted:     sound will be off after page load
+        - controls
+        - loop
+        - width   (video)
+        - height  (video) 
+        - poster  (video)   show prevew before video
+```
+
+###  HTML element *output*
+
+The *output* tag is used to represent the **result of a calculation** (like one performed by a script).
+     
+```<form oninput=result.value=parseInt(a.value)+parseInt(b.value)>```
+
+
+###  Text tags *b* *h1* *P* *sub* *sup*
+
+   ```
+   <h1 align=""> -- <h6 align=""> 
+   <p  align="">
+   <hr>                 => draw line     [non semantic]
+   <br>                 => break line    [non semantic]
+   <address>            => Info about author
+   <q>                  => quote of somebody text
+   <blockquote>         => big quote text from somebody
+   <time>
+
+   Text decoration
+   <b> <i> <tt> <s>     => This will be not read by robot  [non semantic]
+   <strong> <em>        => HTML5 semantic tags
+   <del>    <ins>       => HTML5 semantic tags
+
+   <code>               => to show program code
+   <pre>                => preformatted text. formatting will not change
+   <small> <big>        => logicaly show the part of the text in the sentence
+   <sub> <sup>          => for formulas: pow  n^2
+   ```
+
+
+###  Button                                 
+
+Type:
+   
+   - button:   simple button
+     
+   - submit:   inside <form> - send form data
+   
+   - reset:    inside <form> - reset form data
+    
+    *autofocus* attribute  *disabled* attribute 
+
+Which element better to use for buttons: It depends on context and what for we need for:
+   
+  - button type=button
+
+  - button type=submit
+
+  - input type=submit
+
+  - input type=button
+
+  - div
+
+  - a
+
+
+###  *label* tag what for?
+
+The *label* HTML element represents a caption for an item in a user interface.
+Associating a *label* with a form control, such as *input*, *textarea*, *select*, *check* or *radio* offers some major advantages:
+
+- The label text is not only visually associated with its corresponding text input; it is programmatically associated with it too. 
+  This means that, for example, a screen reader will read out the label when the user is focused on the form input, making it easier 
+  for an assistive technology user to understand what data should be entered.
+
+- When a user clicks or touches/taps a label, the browser passes the focus to its associated input (the resulting event is also raised for the input). 
+  That increased hit area for focusing the input provides an advantage to anyone trying to activate it — including those using a touch-screen device.
+
+
+###  Images and 'alt' attribute and  using of *picture* element                           
+
+  ``` <img  src="href" alt="image was not loaded"> ```
+   
+Note: Do not set width and height attributes due to responsive design, manipulate width height depending on device on CSS side.
+Use *srcset* attribute to set needed image depending on media value. Browser will pick the best source from set.
+
+   ```
+   <picture>
+     <source  media="(min-width: 1024px)"  srcset="..url..">
+     <source  media="(min-width: 768px)"   srcset="..url..">
+     <source  media="(min-width: 360px)"   srcset="..url..">
+     <img src=""  alt="">
+   
+   ```
+    
+How to correctly add Image with semantic description and for search robots
+
+   ```
+   <figure>
+     <img src=""  alt="">
+     <figcaption>image description</figcaption>     
+   
+   ```
+
+Note:
+   *alt* attribute for *img* element: set the default text before image loading or failed.
+   Also it can be pronounced for accesibility. Validator will failed if alt is missed for img 
+
+###  *decoding* attribute of the *img*
+
+Provides a hint to the browser as to how it should decode the image. More specifically, whether it should wait for the image 
+to be decoded before presenting other content updates or not.
+
+ - sync: Decode the image synchronously for atomic presentation with other content.
+ - async:  Decode the image asynchronously and allow other content to be rendered before this completes.
+ - auto: No preference for the decoding mode; the browser decides what is best for the user.
+
+
+
+###  Types of *list* in HTML                    
+
+  - ordered(numered) lists      ```<ol start="1" reversed> <li>....```
+  
+  - unordered(markered) lists   ```<ul> <li>   disk by default ```
+   
+Note:  Nested lists *ol* will start with 1.  Nested list *ul*  will start with circle
+   
+  - semantic lists  
+    
+   ```
+   <dl> determinations lists        
+      <dt>   termin
+      <dd>   description
+   
+   ```
+
+
+
+
+###  Types of *input* elements
+
+Attribute type:
+
+ - text:  
+    
+ - number:      attributes *min*  *max*  *step*  !useful for mobile phones: keyboard will be displayed
+    
+ - password:    
+   
+ - range
+    
+ - color 
+    
+ - submit 
+   
+ - reset  
+   
+ - text   list="list"  + <datalist>
+   
+ - email:     inside <form> it can be validated:  !useful for mobile phones: keyboard will be displayed
+   
+ - url:       inside <form> it can be validated
+   
+ - image 
+   
+ - tel:    !useful for mobile phones: keyboard will be displayed
+   
+ - search 
+   
+ - date         attributes *min*  *max*  *default*
+   
+ - datetime-local:  time can be added and show local time date
+   
+ - month:    month can be chosen
+   
+ - time:     only time
+   
+ - week:     number of the week in the year (1-52)
+   
+ - hidden    to post on the form some kind of technical data to server
+                tracking info?
+
+ - file      show file dialog  [accept]  [multiple]
+   
+ - checkbox  *checked* attrubute
+   
+ - radio:    set *name* to the same value   *checked* attrubute
+                Use <label> for checkbox and radio
+
+
+###  What is *iframe*
+
+The *iframe* HTML element represents a nested browsing context, embedding another HTML page into the current one. Its like a container.
+Main attributes:
+  
+  - width:  width of the frame in CSS pixels. Default is 300
+  
+  - height: height of the frame in CSS pixels. Default is 150
+  
+  - src: The URL of the page to embed
+  
+  - name: This can be used in the target attribute
+  
+  - title: for accesibility 
+
+  - allowfullscreen
+  
+  - loading: eager | lazy
+  
+  - sandbox: Controls the restrictions applied to the content embedded in the *iframe*. 
+             The value of the attribute can either be empty to apply all restrictions, or space-separated tokens to lift particular restrictions
+
+
+###  *samp* tag
+
+The *samp* HTML element is used to enclose inline text which represents sample (or quoted) output from a computer program. 
+Its contents are typically rendered using the browser's default monospaced font (such as Courier or Lucida Console).
+
+
+###  Managing Translation Features via *translate* attribute
 
 You can use the *translate* attribute to specify whether the content of an element should be translated by the browser’s translation features.
 
@@ -806,6 +837,63 @@ You can use the *translate* attribute to specify whether the content of an eleme
 	This text should not be translated.
 	</p>
 	```
+
+###  Universal attributes                       
+
+Can be applyed to most of the tags
+  - id 
+  - class 
+  - title               tootlip with text
+  - style               inline style
+  - contenteditable
+  - spellcheck          for input textarea 
+  - hidden              browser should not render the contents of the element. (aka display:none)
+  - tabindex            focus index order
+  - dir                 direction: change text direction
+  - land                include language 
+                        for example quotes will be different for diff languages
+
+
+###  *autocomplete* attribute 
+
+The autocomplete attribute specifies whether a form or an input field should have autocomplete on or off.
+
+Autocomplete allows the browser to predict the value. When a user starts to type in a field, 
+
+The browser should display options to fill in the field, based on earlier typed values.
+
+
+###  For what do we use *data-* attributes
+   
+The old-style. For store some info.  ```  data-price="30" ```
+
+
+###  *novalidate* attribute of the *form*
+
+A key point here is that setting the novalidate attribute on the form is what stops the form from showing its own error message bubbles,
+and allows us to instead display the custom error messages in the DOM in some manner of our own choosing.
+
+
+###  *inputmode* attribute
+
+The inputmode global attribute is an enumerated attribute that hints at the type of data that might be entered by the user 
+while editing the element or its contents. This allows a browser to display an appropriate virtual keyboard.
+Say to browser which keyboard to show:  text | numeric | tel | url | email...
+
+
+###  *pattern* attribute
+
+The *pattern* attribute specifies a regular expression the form control's value should match: ```pattern="[a-z]{4,8}"  or ".{6,}" ```
+
+If a non-null value doesn't conform to the constraints set by the pattern value, the ValidityState object's read-only 
+patternMismatch property will be true.
+The form will not be sumbitted until pattern will be validated.
+
+
+###  *enterkeyhint* attribute
+The enterkeyhint global attribute is an enumerated attribute defining what action label (or icon) to present for the enter key on virtual keyboards.
+
+enter | done | go | next | previous | search | send
 
 
 ## DOM
@@ -817,35 +905,6 @@ Document Object Model which browser builds in memory depending on parsing HTML c
 This is interface for communicating of the Javascript and page elements. Tree structure. 	
 
 The DOM tree is the structure which contains parent/child/sibling elements in relation to each other. 
-
-
-###  What is Event Propogation(распространение)
-
-Propagation refers to how events travel through the Document Object Model (DOM) tree. Its a mechanism.
-
-Propogates from window to the called element and event will *touched* all the parents of the called element. 
-
-Three phases of the event Propogation:
-
- - 1. Capture phase (from root(window) to target element)
- 
- - 2. Target (event reaches the target element)
- 
- - 3. Bubbling phase ( return back from target to window, also raises events on all parents)
-
-
-###  What is Event Delegation
-	
-Add just one event handler to the parent element, no need to add several listeners for all parent children.
-
-Use the event.target and delegate the changes to it.
-
-
-###  Difference between e.preventDefault and e.stopPropogation
-
- - preventDefault: stop(cancel) the event behaviour for the element
-   
- - stopPropogation: cancel the bubbling of the event
 
 
 ###  Methods of search the elements in DOM
@@ -861,32 +920,6 @@ Use the event.target and delegate the changes to it.
  - querySelector(css selectors) - first founded element
 
  - querySelectorAll(css selectors)
-
-
-###  Difference between event.target and currentTarget
-
- - currentTarget tells us on which element the event was attached to or the element whose eventListener triggered the event. 
-	
- - target tells where the event started.
-
-
-###  Difference between event.stopPropogation and stopImmidiatePropogation
-
-If event occurs in browser the bubbling mechanims also occurs.
-From target elelent to its all parents. You can stop bubbling in every parent event handler..
-
- - stopPropogation: cancel bubbling BUT it will occur on current
-	
- - stopImmidiatePropogation: cancel bubbling in current ALSO
-
-
-###  Difference between event load and DOMContentLoaded
-
- - DOMContentLoaded:  css/images were NOT loaded, so it occurs BEFORE load event. Occur before *load*
-
- - load:  loaded html/css/images....
-		
- - beforeUnload / Unload
 
 
 ###  Types of nodes in the DOM tree
@@ -936,51 +969,6 @@ https://www.youtube.com/watch?v=rhvec8cXLlo
                              parentElement 
       previousElementSibling  <=  DIV  => nextElementSibling
          fisrtElementChild  <= children   =>   lastElementChild
-
-
-###  Types of events in browser JS
-
- - Mouse       (click, mousemove, mouseover...)
-
- - Keyboard    (keydown, keypress, keyup)
-
- - Form        (submit, blur, focus, reset, change)
-
- - DragDrop    (dragstar, dragend, drag)  
-
- - Multimedia  
-
- - Touch  
-
- - Buffer  
-
- - Print   
- 
- - Animation  
-
- - Frames/Window/Document    
-
-
-###  How to add event handler for DOM element 
-
- - INLINE event handler     ```<button onclick="...">```
-       You cannot set 2 event handlers
-
- - Event handler property  ```btn.onclick = functon...```
-       You cannot set 2 event handlers
-   
- - addEventListener        ```btn.addEventListener("click", callback)```
-   
-   addEventListener(eventType, listener, caprture / {options})
-      - capture(default=false): If true, useCapture show that user wants to capture event. 
-      - options object
-                 - capture
-                 - once   Boolean handler will be called only once. 
-                          If *true*, handler will be automatically removed after call.
-                 passive  true - handler will never call preventDefault(). 
-   
-   REMOVE:  removeEventListener("click", callback)
-
 
 ###  Difference between attribute and property DOM element
 
@@ -1059,3 +1047,118 @@ Main method:  getBoundingClientRect() return DOMRect with position and sizes.
 
 
 https://habr.com/ru/companies/timeweb/articles/705552/ [2022]
+
+
+
+
+## DOM Events
+
+###  What is Event Propogation(распространение)
+
+Propagation refers to how events travel through the Document Object Model (DOM) tree. Its a mechanism.
+
+Propogates from window to the called element and event will *touched* all the parents of the called element. 
+
+Three phases of the event Propogation:
+
+ - 1. Capture phase (from root(window) to target element)
+ 
+ - 2. Target (event reaches the target element)
+ 
+ - 3. Bubbling phase ( return back from target to window, also raises events on all parents)
+
+
+###  What is Event Delegation
+	
+Add just one event handler to the parent element, no need to add several listeners for all parent children.
+
+Use the event.target and delegate the changes to it.
+
+
+###  Difference between e.preventDefault and e.stopPropogation
+
+ - preventDefault: stop(cancel) the event behaviour for the element
+   
+ - stopPropogation: cancel the bubbling of the event
+
+
+###  Difference between event.target and currentTarget
+
+ - currentTarget tells us on which element the event was attached to or the element whose eventListener triggered the event. 
+	
+ - target tells where the event started.
+
+
+###  Difference between event.stopPropogation and stopImmidiatePropogation
+
+If event occurs in browser the bubbling mechanims also occurs.
+From target elelent to its all parents. You can stop bubbling in every parent event handler..
+
+ - stopPropogation: cancel bubbling BUT it will occur on current
+	
+ - stopImmidiatePropogation: cancel bubbling in current ALSO
+
+
+###  Difference between event load and DOMContentLoaded
+
+ - DOMContentLoaded:  css/images were NOT loaded, so it occurs BEFORE load event. Occur before *load*
+
+ - load:  loaded html/css/images....
+		
+ - beforeUnload / Unload
+
+
+###  Types of events in browser JS
+
+ - Mouse       (click, mousemove, mouseover...)
+
+ - Keyboard    (keydown, keypress, keyup)
+
+ - Form        (submit, blur, focus, reset, change)
+
+ - DragDrop    (dragstar, dragend, drag)  
+
+ - Multimedia  
+
+ - Touch  
+
+ - Buffer  
+
+ - Print   
+ 
+ - Animation  
+
+ - Frames/Window/Document    
+
+
+###  How to add event handler for DOM element 
+
+ - INLINE event handler     ```<button onclick="...">```
+       You cannot set 2 event handlers
+
+ - Event handler property  ```btn.onclick = functon...```
+       You cannot set 2 event handlers
+   
+ - addEventListener        ```btn.addEventListener("click", callback)```
+   
+   addEventListener(eventType, listener, caprture / {options})
+      - capture(default=false): If true, useCapture show that user wants to capture event. 
+      - options object
+                 - capture
+                 - once   Boolean handler will be called only once. 
+                          If *true*, handler will be automatically removed after call.
+                 passive  true - handler will never call preventDefault(). 
+   
+   REMOVE:  removeEventListener("click", callback)
+
+
+
+## Accessibility
+
+### What is screenreader
+
+Screen readers are software applications that attempt to convey what is seen on a screen display in a non-visual way, usually as text to speech, 
+
+but also into braille or sound icons. Screen readers are essential to people who are visually impaired, illiterate, or have a learning disability. 
+
+There are some browser extension screen readers, but most screen readers operate system-wide for all user applications, not just the browser.
