@@ -907,6 +907,11 @@ This is interface for communicating of the Javascript and page elements. Tree st
 The DOM tree is the structure which contains parent/child/sibling elements in relation to each other. 
 
 
+###  What is Document
+
+The Document interface represents any web page loaded in the browser and serves as an entry point into the web page's content, which is the DOM tree.
+
+
 ###  Methods of search the elements in DOM
 
  - getElementById
@@ -1061,11 +1066,11 @@ Propogates from window to the called element and event will *touched* all the pa
 
 Three phases of the event Propogation:
 
- - 1. Capture phase (from root(window) to target element)
+- eventPhase = 1: Capture phase (from root(window) to target element)
  
- - 2. Target (event reaches the target element)
+- eventPhase = 2: Target (event reaches the target element)
  
- - 3. Bubbling phase ( return back from target to window, also raises events on all parents)
+- eventPhase = 3: Bubbling phase ( return back from target to window, also raises events on all parents)
 
 
 ###  What is Event Delegation
@@ -1077,16 +1082,17 @@ Use the event.target and delegate the changes to it.
 
 ###  Difference between e.preventDefault and e.stopPropogation
 
- - preventDefault: stop(cancel) the event behaviour for the element
+ - preventDefault: stop(cancel) the default event behaviour for the element
    
  - stopPropogation: cancel the bubbling of the event
 
 
-###  Difference between event.target and currentTarget
+###  Difference between event.target and event.currentTarget
 
- - currentTarget tells us on which element the event was attached to or the element whose eventListener triggered the event. 
+ - **currentTarget** tells us on which element the event was attached to or the element *whose eventListener triggered the event*
+                     *currentTarget* == *this*
 	
- - target tells where the event started.
+ - **target** tells where the event started - the exact element on which event was occur. During *bubbling* it will never change.
 
 
 ###  Difference between event.stopPropogation and stopImmidiatePropogation
@@ -1094,10 +1100,11 @@ Use the event.target and delegate the changes to it.
 If event occurs in browser the bubbling mechanims also occurs.
 From target elelent to its all parents. You can stop bubbling in every parent event handler..
 
- - stopPropogation: cancel bubbling BUT it will occur on current
+ - **stopPropogation:** cancel bubbling BUT it will occur for other handlers of this event for current element.
 	
- - stopImmidiatePropogation: cancel bubbling in current ALSO
-
+ - **stopImmidiatePropogation:** prevents other listeners of the same event from being called. 
+ If several listeners are attached to the same element for the same event type, they are called in the order in which they were added. 
+ If stopImmediatePropagation() is invoked during one such call, no remaining listeners will be called, either on that element or any other element.
 
 ###  Difference between event load and DOMContentLoaded
 

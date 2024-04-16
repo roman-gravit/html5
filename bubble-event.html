@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Event bubble, stop propogation</title>
+	<script src="./src/bubble.js" defer></script>
+</head>
+<body id="body" style="height: 100vh;">
+	<p>Events bubbling</p>
+	<div id="test-div">
+		<em>Click on the  <code>EM</code>, handle will fire on <code>DIV</code></em>
+		<nav>
+			<ul>
+				<li id="li-first">First</li>
+				<li id="li-second">Second</li>
+				<li id="li-third">Third</li>
+			</ul>
+		</nav>
+	</div>
+</body>
+</html>
